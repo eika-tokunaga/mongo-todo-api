@@ -18,7 +18,7 @@ const start = async () => {
     }
 }
 
-if (required.main === module) {
+if (require.main === module) {
     start();
 }
 

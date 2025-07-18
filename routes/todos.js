@@ -5,6 +5,7 @@ const Todo = require('../models/Todo');
 
 // Make a route
 router.get('/', async (req, res) => {
+    console.log('GET Route');
     try {
         const todos = await Todo.find();
         res.status(200).send({data: todos});
@@ -16,8 +17,9 @@ router.get('/', async (req, res) => {
 
 // Make a post route
 router.post('/', async (req, res) => {
+    console.log(`POST route`);
     try {
-        const { text } = req.body;
+        const text = req.body;
         const newTodo = await Todo.create(text);
         res.status(200).send({message: `Todo '${text}' added.`});
     } catch (error) {
